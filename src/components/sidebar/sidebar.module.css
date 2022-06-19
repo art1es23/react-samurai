@@ -1,0 +1,10 @@
+.sidebar {
+  background-color: blue;
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  color: white;
+}

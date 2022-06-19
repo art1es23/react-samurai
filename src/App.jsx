@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
-import Profile from './components/Profile';
-import Sidebar from './components/Sidebar';
+import Header from './components/header/Header';
+import Profile from './components/profile/Profile';
+import Sidebar from './components/sidebar/Sidebar';
 
 import './App.css';
 

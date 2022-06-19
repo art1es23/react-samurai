@@ -1,37 +1,9 @@
 .app-wrapper {
-    display: grid;
+  display: grid;
 
-    grid-template-areas: 
+  grid-template-areas:
     "header header"
     "nav content";
-    grid-template-columns: 2fr 10fr;
-    grid-gap: 10px;
-}
-
-.header {
-    grid-area: header;
-    background-color: aqua;
-}
-
-.header img {
-    width: 150px;
-    height: 100px;
-}
-.sidebar {
-    background-color: blue;
-    grid-area: nav;
-    display: flex;
-    flex-direction: column;
-}
-.profile {
-    background-color: yellow;
-    grid-area: content;
-}
-
-.profile-description {
-    display: flex;
-}
-
-.profile-description img {
-    width: 200px;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
 }

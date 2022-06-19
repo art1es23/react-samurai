@@ -1,0 +1,12 @@
+.profile {
+  background-color: yellow;
+  grid-area: content;
+}
+
+.profileDescription {
+  display: flex;
+}
+
+.profileDescription img {
+  width: 200px;
+}
