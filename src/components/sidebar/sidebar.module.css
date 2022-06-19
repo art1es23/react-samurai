@@ -5,6 +5,6 @@
   flex-direction: column;
 }
 
-.item {
+.item a {
   color: white;
 }
