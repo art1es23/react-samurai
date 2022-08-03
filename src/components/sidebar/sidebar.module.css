@@ -3,8 +3,38 @@
   grid-area: nav;
   display: flex;
   flex-direction: column;
+  padding: 25px;
 }
 
 .item a {
+  text-decoration: none;
   color: white;
+}
+
+.item a.activeLink {
+  color: blueviolet;
+}
+
+.friends {
+  display: flex;
+  flex-direction: column;
+}
+
+.friendsList {
+  display: flex;
+  justify-content: space-between;
+}
+
+.friendsListItem {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.friendsListItem a {
+  color: white;
+}
+
+.friendsListItem a img {
+  width: 50px;
 }

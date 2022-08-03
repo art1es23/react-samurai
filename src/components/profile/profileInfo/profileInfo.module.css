@@ -1,0 +1,15 @@
+.profileDescription {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.profileDescription img {
+  width: 200px;
+}
+
+.profileDescriptionText {
+  font-size: 20px;
+  padding: 10px 0;
+}

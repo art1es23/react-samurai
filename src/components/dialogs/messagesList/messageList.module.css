@@ -1,0 +1,25 @@
+.messagesList {
+  display: flex;
+  flex-direction: column;
+}
+
+.listMessagesItems {
+  display: flex;
+  flex-direction: column;
+}
+
+.newMessage {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.textarea {
+  width: 90%;
+  padding: 5px 10px;
+  resize: none;
+}
+
+.sendBtn {
+  padding: 10px;
+}

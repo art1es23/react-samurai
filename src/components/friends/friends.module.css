@@ -1,0 +1,16 @@
+.sidebar {
+  background-color: blue;
+  grid-area: nav;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.item a {
+  text-decoration: none;
+  color: white;
+}
+
+.item a.activeLink {
+  color: blueviolet;
+}

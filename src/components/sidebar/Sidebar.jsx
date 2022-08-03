@@ -3,23 +3,37 @@ import { NavLink } from 'react-router-dom';
 
 import s from './sidebar.module.css';
 
-const Sidebar = () => {
+
+const Sidebar = ({ linksData, friendsListData }) => {
+
+    let links = linksData.map(item => {
+        return (
+            <div key={item.id} className={s.item}>
+                <NavLink to={item.src}>
+                    {item.name}
+                </NavLink>
+            </div>
+        )
+    });
+
+    let friends = friendsListData.map(item => {
+        return (
+            <div key={item.id} className={s.friendsListItem}>
+                <NavLink to={item.src}>{item.name}</NavLink>
+            </div>
+        )
+    });
+
     return (
         <nav className={s.sidebar}>
-            <div className={s.item}>
-                <NavLink to='/profile'>Profile</NavLink>
+            <div className={s.sidebarLinks}>
+                {links}
             </div>
-            <div className={s.item}>
-                <NavLink to='/dialogs'>Messages</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to='/news'>News</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to='/music'>Music</NavLink>
-            </div>
-            <div className={s.item}>
-                <NavLink to='/settings'>Settings</NavLink>
+            <div className={s.friends}>
+                <h3>Friends</h3>
+                <div className={s.friendsList}>
+                    {friends}
+                </div>
             </div>
         </nav>
     )
