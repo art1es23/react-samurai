@@ -12,54 +12,15 @@ class Users extends React.Component {
 
         axios.get("https://api.jsonbin.io/v3/b/62eaa1335c146d63ca5c9d2d/")
             .then(response => {
-                console.log(response);
-                props.setUsers(response.data.record.items);
+                // console.log(response);
+                this.props.setUsers(response.data.record.items);
             })
             .catch((err) => {
                 let message = typeof err.response !== "undefined" ? err.response.data.message : err.message;
                 console.warn("error", message);
             })
 
-        console.log(props.usersData);
-
-        this.users = props.usersData.map((item) => {
-
-            console.log(item);
-
-            let { followed, id, img, name, status, location } = item;
-            return (
-                <User key={id} id={id} followed={followed} img={img} name={name} status={status} location={location} changeFollow={props.changeFollow}
-                ></User>
-            )
-        });
-
     }
-
-    // users = this.props.usersData.map((item) => {
-
-    //     console.log(item);
-
-    //     let { followed, id, img, name, status, location } = item;
-    //     return (
-    //         <User key={id} id={id} followed={followed} img={img} name={name} status={status} location={location} changeFollow={this.props.changeFollow}
-    //         ></User>
-    //     )
-    // });
-
-
-    // getUsers = () => {
-    //     if (this.props.usersData.length === 0) {
-
-    //         axios.get("https://api.jsonbin.io/v3/b/62eaa1335c146d63ca5c9d2d/")
-    //             .then(response => {
-    //                 this.props.setUsers(response.data.record.items);
-    //             })
-    //             .catch((err) => {
-    //                 let message = typeof err.response !== "undefined" ? err.response.data.message : err.message;
-    //                 console.warn("error", message);
-    //             })
-    //     }
-    // }
 
     render() {
         return (
@@ -67,7 +28,16 @@ class Users extends React.Component {
                 <h3>Users</h3>
                 {/* <button onClick={this.getUsers}>Get USers</button> */}
 
-                {this.users}
+                {
+                    this.props.usersData.map((item) => {
+
+                        let { followed, id, img, name, status, location } = item;
+                        return (
+                            <User key={id} id={id} followed={followed} img={img} name={name} status={status} location={location} follow={this.props.follow} unfollow={this.props.unfollow}
+                            ></User>
+                        )
+                    })
+                }
 
                 <button type='button' className={u.showMoreBtn}>Show more</button>
             </div>

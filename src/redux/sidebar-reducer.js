@@ -5,6 +5,7 @@ let initialState = {
         { id: '3', name: 'News', src: '/news' },
         { id: '4', name: 'Music', src: '/music' },
         { id: '5', name: 'Settings', src: '/settings' },
+        { id: '6', name: 'Users', src: '/users' },
     ],
 
     friendsListData: [
