@@ -6,20 +6,34 @@ import userIcon from '../../../assets/img/user_icon.png';
 
 // const ICON_PATH = 'https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png';
 
-const User = ({ id, followed, img, name, status, location,
-    follow, unfollow,
+const User = ({
+    id,
+    followed,
+    img,
+    name,
+    status,
+    location,
+    follow,
+    unfollow,
     changeFollow
 }) => {
 
     return (
         <div className={u.container}>
             <div className={u.imgWrapper}>
-                <img src={img != null ? img : userIcon} alt='some' width='50' />
+                <img
+                    src={img != null ? img : userIcon}
+                    alt='some'
+                    width='50' />
 
                 {
                     followed
-                        ? <button type='button' onClick={() => unfollow(id)}>Unfollow</button>
-                        : <button type='button' onClick={() => follow(id)}>Follow</button>
+                        ? <button
+                            type='button'
+                            onClick={() => unfollow(id)}>Unfollow</button>
+                        : <button
+                            type='button'
+                            onClick={() => follow(id)}>Follow</button>
                 }
 
             </div>

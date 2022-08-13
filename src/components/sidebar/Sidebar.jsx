@@ -4,7 +4,10 @@ import { NavLink } from 'react-router-dom';
 import s from './sidebar.module.css';
 
 
-const Sidebar = ({ linksData, friendsListData }) => {
+const Sidebar = ({
+    linksData,
+    friendsListData
+}) => {
 
     let links = linksData.map(item => {
         return (

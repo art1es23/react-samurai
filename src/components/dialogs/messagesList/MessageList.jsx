@@ -3,7 +3,12 @@ import MessageListItem from './messageListItem/MessageListItem';
 
 import ml from './messageList.module.css';
 
-const MessageList = ({ messagesData, newMessageText, sendMessage, updateNewMessageText }) => {
+const MessageList = ({
+    messagesData,
+    newMessageText,
+    sendMessage,
+    updateNewMessageText
+}) => {
 
     let newMessageElem = React.createRef()
 

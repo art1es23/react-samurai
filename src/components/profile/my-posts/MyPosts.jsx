@@ -3,12 +3,20 @@ import Post from './post/Post';
 
 import mp from './my-posts.module.css';
 
-const MyPosts = ({ postsData, newPostText, addNewPost, updateNewPostText }) => {
+const MyPosts = ({
+    postsData,
+    newPostText,
+    addNewPost,
+    updateNewPostText
+}) => {
 
     const posts =
         postsData.map((item) => {
             return (
-                <Post text={item.text} number={item.id} likes={item.likes} />
+                <Post
+                    text={item.text}
+                    number={item.id}
+                    likes={item.likes} />
             )
         });
 

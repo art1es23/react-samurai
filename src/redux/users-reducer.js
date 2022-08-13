@@ -19,7 +19,9 @@ const usersReducer = (state = initialState, action) => {
         return {
             ...state,
             usersData: state.usersData.map(user => {
-                return user.id === userID ? { ...user, followed: !user.followed } : user;
+                return user.id === userID
+                    ? { ...user, followed: !user.followed }
+                    : user;
             })
 
         }
@@ -51,7 +53,9 @@ const usersReducer = (state = initialState, action) => {
         return {
             ...state,
             usersData: state.usersData.map(user => {
-                return user.id === userID ? { ...user, followed: !user.followed } : user;
+                return user.id === userID
+                    ? { ...user, followed: !user.followed }
+                    : user;
             })
 
         }
@@ -61,7 +65,9 @@ const usersReducer = (state = initialState, action) => {
         return {
             ...state,
             usersData: state.usersData.map(user => {
-                return user.id === userID ? { ...user, followed: !user.followed } : user;
+                return user.id === userID
+                    ? { ...user, followed: !user.followed }
+                    : user;
             })
 
         }
