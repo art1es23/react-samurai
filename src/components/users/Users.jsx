@@ -7,29 +7,57 @@ import u from './users.module.css';
 
 class Users extends React.Component {
 
-    constructor(props) {
-        super(props);
-
-        axios.get("https://api.jsonbin.io/v3/b/62eaa1335c146d63ca5c9d2d/")
+    componentDidMount() {
+        axios.get(`https://api.jsonbin.io/v3/b/62f23db9a1610e6386f5a7b4?page=${this.props.currentPage}&count=${this.props.pageSize}`)
             .then(response => {
-                // console.log(response);
                 this.props.setUsers(response.data.record.items);
+                this.props.setTotalUsersCount(response.data.record.totalCount);
             })
             .catch((err) => {
                 let message = typeof err.response !== "undefined" ? err.response.data.message : err.message;
                 console.warn("error", message);
             })
+    }
+
+    componentDidUpdate() {
+
+    }
+
+    onPageChanged = (currentPage) => {
+        this.props.setCurrentPage(currentPage);
+
+        axios.get(`https://api.jsonbin.io/v3/b/62f23db9a1610e6386f5a7b4?page=${currentPage}&pageSize=${this.props.pageSize}`)
+            .then(response => {
+                this.props.setUsers(response.data.record.items);
+            })
 
     }
 
     render() {
+
+        let { usersData, pageSize, totalUsersCount, currentPage } = this.props;
+
+        let pagesCount = Math.ceil(totalUsersCount / pageSize);
+        let pages = [];
+
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
+
         return (
             <div className={u.container}>
-                <h3>Users</h3>
-                {/* <button onClick={this.getUsers}>Get USers</button> */}
 
+                <div className={u.listPageCounters}>
+                    {
+                        pages.map(number => {
+                            return <span key={number} onClick={(e) => { this.onPageChanged(number) }} className={currentPage === number ? `${u.listPageCounters_item + ' ' + u.selectedPage}` : u.listPageCounters_item}>{number}</span>
+                        })
+                    }
+                </div>
+
+                <h3>Users</h3>
                 {
-                    this.props.usersData.map((item) => {
+                    usersData.map((item) => {
 
                         let { followed, id, img, name, status, location } = item;
                         return (

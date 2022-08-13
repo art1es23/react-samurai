@@ -6,6 +6,9 @@ import { changeFollowCreator, followAC, unfollowAC } from "../../../redux/users-
 let mapStateToProps = (state) => {
     return {
         usersData: state.users.usersData,
+        pageSize: state.users.pageSize,
+        totalUsersCount: state.users.totalUsersCount,
+        currentPage: state.users.currentPage,
     }
 }
 

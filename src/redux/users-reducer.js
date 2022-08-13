@@ -2,21 +2,20 @@ const CHANGE_FOLLOWING_USER = 'CHANGE-FOLLOWING-USER';
 const SET_USERS = 'SET-USERS';
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
+const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
+const SET_TOTAL_USER_COUNT = 'SET_TOTAL_USER_COUNT';
 
 let initialState = {
 
-    usersData: [
-        // { id: '1', followed: false, img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Playstation_logo_colour.svg/2560px-Playstation_logo_colour.svg.png', name: 'Denys', status: 'Any status of user', location: { country: 'Ukraine', city: 'Lviv' } },
-        // { id: '2', followed: true, img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Playstation_logo_colour.svg/2560px-Playstation_logo_colour.svg.png', name: 'Dasha', status: 'Any status of user', location: { country: 'Ukraine', city: 'Lviv' } },
-        // { id: '3', followed: false, img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Playstation_logo_colour.svg/2560px-Playstation_logo_colour.svg.png', name: 'Vlad', status: 'Any status of user', location: { country: 'Ukraine', city: 'Lviv' } },
-        // { id: '4', followed: true, img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Playstation_logo_colour.svg/2560px-Playstation_logo_colour.svg.png', name: 'Ilya', status: 'Any status of user', location: { country: 'Ukraine', city: 'Lviv' } },
-    ],
+    usersData: [],
+    pageSize: 3,
+    totalUsersCount: 0,
+    currentPage: 1,
 }
 
 const usersReducer = (state = initialState, action) => {
 
     const changeFollow = (userID) => {
-
         return {
             ...state,
             usersData: state.usersData.map(user => {
@@ -29,13 +28,26 @@ const usersReducer = (state = initialState, action) => {
     const setup = (usersData) => {
         return {
             ...state,
-            usersData: [...usersData],
+            usersData: usersData,
+        }
+    }
+
+    const setCurrentPage = (currentPage) => {
+        return {
+            ...state,
+            currentPage: currentPage,
+        }
+    }
+
+    const setTotalUsersCount = (totalUsersCount) => {
+        return {
+            ...state,
+            totalUsersCount: totalUsersCount,
         }
     }
 
     const follow = (userID) => {
 
-        console.log(userID);
         return {
             ...state,
             usersData: state.usersData.map(user => {
@@ -60,6 +72,10 @@ const usersReducer = (state = initialState, action) => {
             return changeFollow(action.userID);
         case SET_USERS:
             return setup(action.usersData);
+        case SET_CURRENT_PAGE:
+            return setCurrentPage(action.currentPage);
+        case SET_TOTAL_USER_COUNT:
+            return setTotalUsersCount(action.totalUsersCount);
         case FOLLOW:
             return follow(action.userID);
         case UNFOLLOW:
@@ -72,22 +88,32 @@ const usersReducer = (state = initialState, action) => {
 
 export const changeFollowCreator = (userID) => ({
     type: CHANGE_FOLLOWING_USER,
-    userID: userID
+    userID
 });
 
 export const setUsersAC = (usersData) => ({
     type: SET_USERS,
-    usersData: usersData
+    usersData
+});
+
+export const setCurrentPageAC = (currentPage) => ({
+    type: SET_CURRENT_PAGE,
+    currentPage
+});
+
+export const setTotalUsersCountAC = (totalUsersCount) => ({
+    type: SET_TOTAL_USER_COUNT,
+    totalUsersCount
 });
 
 export const followAC = (userID) => ({
     type: FOLLOW,
-    userID: userID
+    userID
 });
 
 export const unfollowAC = (userID) => ({
     type: UNFOLLOW,
-    userID: userID
+    userID
 });
 
 
