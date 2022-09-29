@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  width: 100%;
+  margin: 10px auto;
+}
+
+.imgWrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.descriptionWrapper {
+  border-radius: 5px;
+  border: 1px solid #fff;
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.country {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}

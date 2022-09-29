@@ -1,0 +1,9 @@
+.wrapper {
+  background-color: blueviolet;
+  display: grid;
+  grid-template-columns: 4fr 8fr;
+}
+
+.active {
+  background-color: white;
+}
